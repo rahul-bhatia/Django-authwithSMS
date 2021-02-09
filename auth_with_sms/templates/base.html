@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title%}{% endblock%}</title>
+	<style type="text/css">
+		*{
+			font-family: courier;
+			font-size: 30px;
+		}
+	</style>
+
+</head>
+<body>
+	<CENTER>
+		<div class="nav"></div>
+		{% if user.is_authenticated %}
+			<a href="{% url 'ulogout' %}">Logout</a>
+		{% else %}
+			<a href="{% url 'usignup' %}">Signup</a>
+			<a href="{% url 'ulogin' %}">Login</a>
+		{% endif %}
+		{% block content %}
+		{% endblock%}
+	</CENTER>
+</body>
+</html>
